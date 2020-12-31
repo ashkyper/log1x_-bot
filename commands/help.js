@@ -5,7 +5,7 @@ module.exports = {
     description: 'Gives help information',
     execute(message, args, Discord) {
         const newEmbed = new Discord.MessageEmbed()
-        .setColor('#49B6CE')
+        .setColor('#55bbff')
         .setTitle('log1x_ Discord Bot Help')
         .addFields(
             {name: '%info', value: 'Gives information about log1x_.'},
