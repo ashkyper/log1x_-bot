@@ -19,14 +19,6 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.features = new Discord.Collection();
-const featureFiles = fs.readdirSync('./features').filter(file => file.endsWith('.js'));
-for (const file of featureFiles) {
-    const feature = require(`./features/${file}`);
-
-    client.features.set(feature.name, feature);
-}
-
 //bot startup
 client.once('ready', () => {
     console.log('Bot is Online')
