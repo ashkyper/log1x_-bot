@@ -36,6 +36,9 @@ client.on('message', message => {
     if (message.channel.type === 'news') {
         client.features.get('autopublish').execute(message, Discord);
     }
+});
+
+client.on('message', message => {
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
