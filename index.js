@@ -10,6 +10,7 @@ const prefix = '$';
 const fs = require('fs');
 const { features } = require('process');
 
+//get command .js files
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -26,18 +27,21 @@ for (const file of featureFiles) {
     client.features.set(feature.name, feature);
 }
 
+//bot startup
 client.once('ready', () => {
     console.log('Bot is Online')
     client.user.setActivity('with your mom')
 });
 
+//autopublisher
 client.on('message', message => {
 
     if (message.channel.type === 'news') {
-        client.features.get('autopublish').execute(message, Discord);
+        client.commands.get('autopublish').execute(message, Discord);
     }
 });
 
+//commands
 client.on('message', message => {
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
