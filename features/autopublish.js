@@ -19,6 +19,6 @@ module.exports = {
 			},
 		)
 
-        console.log(`${message} in ${message.channel} has been published`)
+        console.log(`'${message}' in '${message.channel}' from user '${message.member.user.tag}'(${message.member.id}) has been published`)
     }
 }
