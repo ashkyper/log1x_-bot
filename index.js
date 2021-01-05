@@ -26,9 +26,13 @@ client.once('ready', () => {
     client.user.setActivity('with your mom')
 });
 
+//welcome (to come later)
+//client.on('guildMemberAdd', guildMember => {
+//    client.commands.get('welcome').execute(guildMember, Discord);
+//});
+
 //autopublisher
 client.on('message', message => {
-
     if (message.channel.type === 'news') {
         client.commands.get('autopublish').execute(message, Discord);
     }
@@ -36,7 +40,6 @@ client.on('message', message => {
 
 //commands
 client.on('message', message => {
-
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
@@ -49,7 +52,6 @@ client.on('message', message => {
     } else if (command === 'help') {
         client.commands.get('help').execute(message, args, Discord);
     }
-
 });
 
 client.login('Nzk0MjQyMjgwMDY3Njk0NTky.X-39ww.2x9NaX81ByVNSrXAMdik5KrXJYg');
