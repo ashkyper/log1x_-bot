@@ -27,9 +27,9 @@ client.once('ready', () => {
 });
 
 //welcome (to come later)
-//client.on('guildMemberAdd', guildMember => {
-//    client.commands.get('welcome').execute(guildMember, Discord);
-//});
+client.on('guildMemberAdd', guildMember => {
+    client.commands.get('welcome').execute(guildMember, Discord);
+});
 
 //autopublisher
 client.on('message', message => {
