@@ -26,6 +26,13 @@ client.once('ready', () => {
     client.user.setActivity('with your mom')
 });
 
+//joined discord server
+client.on("guildCreate", guild => {
+    console.log(`Joined new server: ${guild.name}(${guild.id})`);
+
+    syncServerList(false);
+});
+
 //welcome
 client.on('guildMemberAdd', guildMember => {
     client.commands.get('welcome').execute(guildMember, Discord);
