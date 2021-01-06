@@ -28,9 +28,7 @@ client.once('ready', () => {
 
 //joined discord server
 client.on("guildCreate", guild => {
-    console.log(`Joined new server: ${guild.name}`);
-
-    syncServerList(false);
+    console.log(`Joined new server: ${guild.name}(${guild.id})`);
 });
 
 //welcome
