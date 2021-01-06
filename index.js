@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 const Discord = require('discord.js');
 const Canvas = require('canvas');
 
-const client = new Discord.Client();
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION" ]});
 
 module.exports = { client };
 
@@ -26,7 +26,7 @@ client.once('ready', () => {
     client.user.setActivity('with your mom')
 });
 
-//welcome (to come later)
+//welcome
 client.on('guildMemberAdd', guildMember => {
     client.commands.get('welcome').execute(guildMember, Discord);
 });
@@ -51,6 +51,8 @@ client.on('message', message => {
         client.commands.get('info').execute(message, args, Discord);
     } else if (command === 'help') {
         client.commands.get('help').execute(message, args, Discord);
+    } else if (command === 'reactionrole') {
+        client.commands.get('reactionrole').execute(message, args, Discord, client);
     }
 });
 
