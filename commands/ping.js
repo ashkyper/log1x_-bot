@@ -4,6 +4,6 @@ module.exports = {
     execute(message, args) {
         message.channel.send('pong');
 
-        console.log('Command \'ping\' run by ' + '[add user later]')
+        console.log(`${message.member.user.tag}'(${message.member.id}) has ran the 'ping' command`)
     }
 }

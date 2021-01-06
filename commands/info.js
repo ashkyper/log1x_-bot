@@ -13,6 +13,6 @@ module.exports = {
 
         message.channel.send(newEmbed);
 
-        console.log('Command \'info\' run by ' + '[add user later]')
+        console.log(`${message.member.user.tag}'(${message.member.id}) has ran the 'info' command`)
     }
 }

@@ -13,9 +13,9 @@ module.exports = {
         const purpleRole = message.guild.roles.cache.find(role => role.name === "Purple");
         const orangeRole = message.guild.roles.cache.find(role => role.name === "Orange");
 
-        const twitchNotificationEmoji = '737344927054168115';
-        const youtubeNotificationEmoji = '737345683639631994';
-        const stockNotificationEmoji = '783479514901512254';
+        const twitchNotificationEmoji = '<:TwitchLogo:737344927054168115>';
+        const youtubeNotificationEmoji = '<:YoutubeLogo:737345683639631994>';
+        const stockNotificationEmoji = '<:nvidia:783479514901512254>';
         const redEmoji = '🟥';
         const blueEmoji = '🟦';
         const greenEmoji = '🟩';
@@ -31,12 +31,12 @@ module.exports = {
                 + `${youtubeNotificationEmoji} for Youtube Notifications\n`
                 + `${stockNotificationEmoji} for Stock Notifications on items like GPUs and CPUs, as well as the next gen consoles\n\n`
                 + 'You can also choose some color roles here!!\n\n'
-                + `${redEmoji} for Twitch Notifications\n`
-                + `${blueEmoji} for Twitch Notifications\n`
-                + `${greenEmoji} for Twitch Notifications\n`
-                + `${yellowEmoji} for Twitch Notifications\n`
-                + `${purpleEmoji} for Twitch Notifications\n`
-                + `${orangeEmoji} for Twitch Notifications`);
+                + `${redEmoji} for Red Color Role\n`
+                + `${blueEmoji} for Blue Color Role\n`
+                + `${greenEmoji} for Green Color Role\n`
+                + `${yellowEmoji} for Yellow Color Role\n`
+                + `${purpleEmoji} for Purple Color Role\n`
+                + `${orangeEmoji} for Orange Color Role`);
  
         let messageEmbed = await message.channel.send(embed);
         messageEmbed.react(twitchNotificationEmoji);
@@ -56,13 +56,13 @@ module.exports = {
             if (!reaction.message.guild) return;
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === twitchNotificationEmoji) {
+                if (reaction.emoji.name === 'TwitchLogo') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(twitchNotificationRole);
                 }
-                if (reaction.emoji.name === youtubeNotificationEmoji) {
+                if (reaction.emoji.name === 'YoutubeLogo') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(youtubeNotificationRole);
                 }
-                if (reaction.emoji.name === youtubeNotificationEmoji) {
+                if (reaction.emoji.name === 'nvidia') {
                     await reaction.message.guild.members.cache.get(user.id).roles.add(stockNotificationRole);
                 }
                 if (reaction.emoji.name === redEmoji) {
@@ -98,13 +98,13 @@ module.exports = {
  
  
             if (reaction.message.channel.id == channel) {
-                if (reaction.emoji.name === twitchNotificationEmoji) {
+                if (reaction.emoji.name === 'TwitchLogo') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(twitchNotificationRole);
                 }
-                if (reaction.emoji.name === youtubeNotificationEmoji) {
+                if (reaction.emoji.name === 'YoutubeLogo') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(youtubeNotificationRole);
                 }
-                if (reaction.emoji.name === youtubeNotificationEmoji) {
+                if (reaction.emoji.name === 'nvidia') {
                     await reaction.message.guild.members.cache.get(user.id).roles.remove(stockNotificationRole);
                 }
                 if (reaction.emoji.name === redEmoji) {
@@ -129,6 +129,8 @@ module.exports = {
                 return;
             }
         });
+
+        console.log(`${message.member.user.tag}'(${message.member.id}) has ran the 'reactionrole' command and a reaction role has been setup`);
     }
 
 }
