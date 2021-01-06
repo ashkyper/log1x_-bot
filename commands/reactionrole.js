@@ -30,7 +30,7 @@ module.exports = {
                 + `${twitchNotificationEmoji} for Twitch Notifications\n`
                 + `${youtubeNotificationEmoji} for Youtube Notifications\n`
                 + `${stockNotificationEmoji} for Stock Notifications on items like GPUs and CPUs, as well as the next gen consoles\n\n`
-                + 'You can also choose some color roles here!!\n\n'
+                + 'You can also choose some color roles here!\n\n'
                 + `${redEmoji} for Red Color Role\n`
                 + `${blueEmoji} for Blue Color Role\n`
                 + `${greenEmoji} for Green Color Role\n`
