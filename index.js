@@ -64,7 +64,6 @@ client.on('message', message => {
             console.log(`User ${message.member.user.tag} (${message.member.id}) tried to run the 'reactionrolesetup' command, bot didnt have the correct perms`)
         }
     }
-
 });
 
 client.login('Nzk0MjQyMjgwMDY3Njk0NTky.X-39ww.2x9NaX81ByVNSrXAMdik5KrXJYg');
