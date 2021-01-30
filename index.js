@@ -22,8 +22,9 @@ for (const file of commandFiles) {
 
 //bot startup
 client.once('ready', () => {
-    console.log('Bot is Online')
-    client.user.setActivity('with your mom')
+    console.log('Bot is online');
+    client.user.setActivity('with your mom');
+    client.commands.get('reactionrole').execute(Discord, client);
 });
 
 //joined discord server
@@ -56,8 +57,8 @@ client.on('message', message => {
         client.commands.get('info').execute(message, args, Discord);
     } else if (command === 'help') {
         client.commands.get('help').execute(message, args, Discord);
-    } else if (command === 'reactionrole') {
-        client.commands.get('reactionrole').execute(message, args, Discord, client);
+    } else if (command === 'reactionrolesetup') {
+        client.commands.get('reactionrolesetup').execute(message, args, Discord, client);
     }
 });
 

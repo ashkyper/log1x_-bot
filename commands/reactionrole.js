@@ -1,17 +1,8 @@
 module.exports = {
     name: 'reactionrole',
-    description: "Sets up a reaction role message",
-    async execute(message, args, Discord, client) {
+    description: "Reaction Roles",
+    async execute(Discord, client) {
         const channel = '737342480021717034';
-        const twitchNotificationRole = message.guild.roles.cache.find(role => role.name === "Twitch Notifications");
-        const youtubeNotificationRole = message.guild.roles.cache.find(role => role.name === "YouTube Notifications");
-        const stockNotificationRole = message.guild.roles.cache.find(role => role.name === "Stock Notifications");
-        const redRole = message.guild.roles.cache.find(role => role.name === "Red");
-        const blueRole = message.guild.roles.cache.find(role => role.name === "Blue");
-        const greenRole = message.guild.roles.cache.find(role => role.name === "Green");
-        const yellowRole = message.guild.roles.cache.find(role => role.name === "Yellow");
-        const purpleRole = message.guild.roles.cache.find(role => role.name === "Purple");
-        const orangeRole = message.guild.roles.cache.find(role => role.name === "Orange");
 
         const twitchNotificationEmoji = '<:TwitchLogo:737344927054168115>';
         const youtubeNotificationEmoji = '<:YoutubeLogo:737345683639631994>';
@@ -23,32 +14,6 @@ module.exports = {
         const purpleEmoji = '🟪';
         const orangeEmoji = '🟧';
 
-        let embed = new Discord.MessageEmbed()
-            .setColor('#55bbff')
-            .setTitle('Choose your roles here!')
-            .setDescription('React with the following for the respective notification role!\n\n'
-                + `${twitchNotificationEmoji} for Twitch Notifications\n`
-                + `${youtubeNotificationEmoji} for Youtube Notifications\n`
-                + `${stockNotificationEmoji} for Stock Notifications on items like GPUs and CPUs, as well as the next gen consoles\n\n`
-                + 'You can also choose some color roles here!\n\n'
-                + `${redEmoji} for Red Color Role\n`
-                + `${blueEmoji} for Blue Color Role\n`
-                + `${greenEmoji} for Green Color Role\n`
-                + `${yellowEmoji} for Yellow Color Role\n`
-                + `${purpleEmoji} for Purple Color Role\n`
-                + `${orangeEmoji} for Orange Color Role`);
- 
-        let messageEmbed = await message.channel.send(embed);
-        messageEmbed.react(twitchNotificationEmoji);
-        messageEmbed.react(youtubeNotificationEmoji);
-        messageEmbed.react(stockNotificationEmoji);
-        messageEmbed.react(redEmoji);
-        messageEmbed.react(blueEmoji);
-        messageEmbed.react(greenEmoji);
-        messageEmbed.react(yellowEmoji);
-        messageEmbed.react(purpleEmoji);
-        messageEmbed.react(orangeEmoji);
-
         client.on('messageReactionAdd', async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();
             if (reaction.partial) await reaction.fetch();
@@ -57,31 +22,31 @@ module.exports = {
  
             if (reaction.message.channel.id == channel) {
                 if (reaction.emoji.name === 'TwitchLogo') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(twitchNotificationRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "Twitch Notifications"));
                 }
                 if (reaction.emoji.name === 'YoutubeLogo') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(youtubeNotificationRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "YouTube Notifications"));
                 }
                 if (reaction.emoji.name === 'nvidia') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(stockNotificationRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "Stock Notifications"));
                 }
                 if (reaction.emoji.name === redEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(redRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "Red"));
                 }
                 if (reaction.emoji.name === blueEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(blueRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "Blue"));
                 }
                 if (reaction.emoji.name === greenEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(greenRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "Green"));
                 }
                 if (reaction.emoji.name === yellowEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(yellowRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "Yellow"));
                 }
                 if (reaction.emoji.name === purpleEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(purpleRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "Purple"));
                 }
                 if (reaction.emoji.name === orangeEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.add(orangeRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.add(reaction.message.guild.roles.cache.find(role => role.name === "Orange"));
                 }
             } else {
                 return;
@@ -99,38 +64,38 @@ module.exports = {
  
             if (reaction.message.channel.id == channel) {
                 if (reaction.emoji.name === 'TwitchLogo') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(twitchNotificationRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "Twitch Notifications"));
                 }
                 if (reaction.emoji.name === 'YoutubeLogo') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(youtubeNotificationRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "YouTube Notifications"));
                 }
                 if (reaction.emoji.name === 'nvidia') {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(stockNotificationRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "Stock Notifications"));
                 }
                 if (reaction.emoji.name === redEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(redRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "Red"));
                 }
                 if (reaction.emoji.name === blueEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(blueRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "Blue"));
                 }
                 if (reaction.emoji.name === greenEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(greenRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "Green"));
                 }
                 if (reaction.emoji.name === yellowEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(yellowRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "Yellow"));
                 }
                 if (reaction.emoji.name === purpleEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(purpleRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "Purple"));
                 }
                 if (reaction.emoji.name === orangeEmoji) {
-                    await reaction.message.guild.members.cache.get(user.id).roles.remove(orangeRole);
+                    await reaction.message.guild.members.cache.get(user.id).roles.remove(reaction.message.guild.roles.cache.find(role => role.name === "Orange"));
                 }
             } else {
                 return;
             }
         });
 
-        console.log(`${message.member.user.tag}'(${message.member.id}) has ran the 'reactionrole' command and a reaction role has been setup`);
+        console.log(`ReactionRole started`);
     }
 
 }
