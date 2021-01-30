@@ -38,7 +38,7 @@ module.exports = {
         messageEmbed.react(purpleEmoji);
         messageEmbed.react(orangeEmoji);
 
-        console.log(`${message.member.user.tag}'(${message.member.id}) has ran the 'reactionrolesetup' command and a reaction role has been setup`);
+        console.log(`${message.member.user.tag} (${message.member.id}) has ran the 'reactionrolesetup' command and a reaction role has been setup`);
     }
 
 }

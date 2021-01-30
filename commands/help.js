@@ -14,6 +14,6 @@ module.exports = {
 
         message.channel.send(newEmbed);
 
-        console.log(`${message.member.user.tag}'(${message.member.id}) has ran the 'help' command`)
+        console.log(`${message.member.user.tag} (${message.member.id}) has ran the 'help' command`)
     }
 }

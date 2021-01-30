@@ -58,8 +58,13 @@ client.on('message', message => {
     } else if (command === 'help') {
         client.commands.get('help').execute(message, args, Discord);
     } else if (command === 'reactionrolesetup') {
-        client.commands.get('reactionrolesetup').execute(message, args, Discord, client);
+        if(message.member.roles.cache.some(admin => admin.name === 'Admin')) {
+            client.commands.get('reactionrolesetup').execute(message, args, Discord, client);
+        } else {
+            console.log(`User ${message.member.user.tag} (${message.member.id}) tried to run the 'reactionrolesetup' command, bot didnt have the correct perms`)
+        }
     }
+
 });
 
 client.login('Nzk0MjQyMjgwMDY3Njk0NTky.X-39ww.2x9NaX81ByVNSrXAMdik5KrXJYg');
